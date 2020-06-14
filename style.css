@@ -1,0 +1,67 @@
+body {
+  font-family: "Varela Round", sans-serif;
+  background: linear-gradient(225deg, #e97fa3 0%, #8b10b0 49%, #00d4ff 100%);
+  color: black;
+  height: 100vh;
+  overflow: hidden;
+}
+body div {
+  text-align: center;
+}
+body .center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+body #chessBoard {
+  background: linear-gradient(45deg, #e97fa3 0%, #8b10b0 49%, #00d4ff 100%);
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.75);
+}
+body #chessBoard td {
+  height: 5.5vh;
+  width: 5.5vh;
+}
+body #chessBoard img {
+  height: 8vh;
+  margin-top: 0.8vh;
+  margin-left: 10%;
+}
+body #chessBoard .b {
+  background-color: #ffffff00;
+}
+body #chessBoard .w {
+  background-color: #ffffff;
+}
+body #chessBoard .g {
+  background-color: white;
+  opacity: 0.5;
+}
+body #chessBoard .p1 {
+  background-color: blue;
+  opacity: 0.5;
+}
+body #chessBoard .p2 {
+  background-color: red;
+  opacity: 0.5;
+}
+body #chessBoard .b.selected {
+  box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+}
+body #chessBoard .w.selected {
+  box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+}
+body #gameOver, body #tips {
+  background-color: #fffffffa;
+  padding: 5vh;
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.75);
+}
+body #gameOver h1, body #tips h1 {
+  margin: 0;
+}
+body ::-webkit-input-placeholder {
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */
