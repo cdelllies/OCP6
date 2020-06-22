@@ -2,6 +2,14 @@ const rand = (max, min = 1) => {
   return Math.floor(Math.random() * max) + min
 }
 
+class Player{
+  constructor(){
+    this.x = rand(10)
+    this.y = rand(10)
+  }
+}
+
+
 const drawBoard = () => {
   let id = 0
   let guns = 0
@@ -31,8 +39,20 @@ const drawBoard = () => {
   document.body.appendChild(table)
 }
 
-const player = () => {
-
+const colorCase = (color, x, y) => {
+  let plateCase = document.querySelector(`[data-x="${x}"][data-y="${y}"]`)
+  
+  plateCase.setAttribute('style', `background-color : ${color}`)
 }
 
+const locatePlayers = () => {
+    let player1 = new Player
+    colorCase('red', player1.x, player1.y)
+    let player2 = new Player
+    colorCase('blue', player2.x, player2.y)
+}
+
+
+
 drawBoard();
+locatePlayers();
