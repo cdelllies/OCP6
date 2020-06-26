@@ -21,7 +21,8 @@ body .center {
   transform: translate(-50%, -50%);
 }
 body #chessBoard {
-  background: linear-gradient(45deg, #e97fa3 0%, #8b10b0 49%, #00d4ff 100%);
+  /* background: linear-gradient(45deg, #e97fa3 0%, #8b10b0 49%, #00d4ff 100%); */
+  background-color: #8b10b0;
   box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.75);
 }
 body #chessBoard td {
@@ -36,12 +37,8 @@ body #chessBoard img {
 body #chessBoard .b {
   background-color: #ffffff00;
 }
-body #chessBoard .w {
+body #chessBoard .w, body #chessBoard .g {
   background-color: #ffffff;
-}
-body #chessBoard .g {
-  background-color: white;
-  opacity: 0.5;
 }
 body #chessBoard .p1 {
   background-color: blue;

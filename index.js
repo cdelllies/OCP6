@@ -2,6 +2,9 @@ let params = {
   'gridSize': 10,
   'maxGuns': 4
 }
+
+let blankCase = { 'x': [], 'y': [] }
+
 let gunsStore = []
 let playerStore = []
 
@@ -20,47 +23,65 @@ class Player {
     }
     colorCase(color, this.x, this.y)
   }
+  move() {
+
+  }
 }
 
 class Gun {
   constructor(x, y) {
-    this.x = x
-    this.y = y
+    this.location = new Location(x, y)
   }
 }
 
-
-const drawBoard = () => {
-  let id = 0
-  let guns = 0
-  const table = document.createElement('table')
-  table.setAttribute('id', 'chessBoard')
-  for (let i = 0; i < params.gridSize; i++) {
-    const tr = document.createElement('tr')
-    for (let j = 0; j < params.gridSize; j++) {
-      const td = document.createElement('td')
-      if (rand(10) == 1) {
-        td.className = 'b'
-      } else if (rand(20) == 1 && guns < params.maxGuns) {
-        gunsStore.push(new Gun(i, j))
-        guns++
-        let img = document.createElement('img')
-        img.setAttribute('src', 'gun.png')
-        td.appendChild(img)
-        td.className = 'g'
-      } else {
-        td.className = 'w'
-      }
-      td.setAttribute('data-x', i)
-      td.setAttribute('data-y', j)
-      td.setAttribute('id', id)
-      id++;
-      tr.appendChild(td)
-    }
-    table.appendChild(tr)
+class Location {
+  constructor(x, y) {
+    this.x = x
+    this.y = y
   }
-  table.classList.add('center')
-  document.body.appendChild(table)
+  checkNeighbors(radius) {
+
+  }
+  change(x, y) {
+
+  }
+}
+
+class Board {
+  constructor() {
+    let id = 0
+    let guns = 0
+    const table = document.createElement('table')
+    table.setAttribute('id', 'chessBoard')
+    for (let i = 0; i < params.gridSize; i++) {
+      const tr = document.createElement('tr')
+      for (let j = 0; j < params.gridSize; j++) {
+        const td = document.createElement('td')
+        if (rand(10) == 1) {
+          blankCase.x.push(i)
+          blankCase.y.push(j)
+          td.className = 'b'
+        } else if (rand(20) == 1 && guns < params.maxGuns) {
+          gunsStore.push(new Gun(i, j))
+          guns++
+          let img = document.createElement('img')
+          img.setAttribute('src', 'gun.png')
+          td.appendChild(img)
+          td.className = 'g'
+        } else {
+          td.className = 'w'
+        }
+        td.setAttribute('data-x', i)
+        td.setAttribute('data-y', j)
+        td.setAttribute('id', id)
+        id++;
+        tr.appendChild(td)
+      }
+      table.appendChild(tr)
+    }
+    table.classList.add('center')
+    document.body.appendChild(table)
+  }
 }
 
 const colorCase = (color, x, y) => {
@@ -73,7 +94,6 @@ const createPlayers = () => {
   playerStore.push(new Player('blue'))
 }
 
+const board = new Board
 
-
-drawBoard();
 createPlayers();
