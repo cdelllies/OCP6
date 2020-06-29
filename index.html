@@ -7,12 +7,35 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>ChessGame</title>
   <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
+  <header class="acrylic">
+    <h1>Overwatch 3</h1>
+    <sub>Jeu de plateau écrit en JavaScript</sub>
+  </header>
+  <div id="app"></div>
+  <div id="control" class="acrylic">
+    <article>
+      <h2>Joueur 1</h2>
+      <button>Se défendre</button>
+      <button>Attaquer</button>
+    </article>
+    <article>
+      <h2>Joueur 2</h2>
+      <button>Se défendre</button>
+      <button>Attaquer</button>
+    </article>
+  </div>
+  <footer>
 
-  <script src="index.js"></script>
+  </footer>
+  <div id="rules" style="display: hidden;"></div>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/Board.js"></script>
+  <script src="assets/js/Case.js"></script>
+  <script src="assets/js/index.js"></script>
 </body>
 
 </html>

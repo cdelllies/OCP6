@@ -1,0 +1,79 @@
+$blackColor : #ffffff00
+$whiteColor :   #ffffff
+
+*
+    margin: 0
+
+body
+    font-family: 'Varela Round', sans-serif
+    background: linear-gradient(225deg, rgba(233,127,163,1) 0%, rgba(139,16,176,1) 49%, rgba(0,212,255,1) 100%)
+    color: black
+    height: 100vh
+    overflow: auto
+    margin: 0
+    div
+        text-align: center
+    header
+        text-align: center
+        padding: 2rem
+        color: white
+    .acrylic
+        background-color: #ffffff28
+    .center
+        margin: 2rem auto
+        margin-top: 2rem
+
+    #board
+        background: linear-gradient(45deg, rgba(233,127,163,1) 0%, rgba(139,16,176,1) 49%, rgba(0,212,255,1) 100%)
+        //border-spacing: 0px
+        box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75)
+        img
+            max-width: 80%
+            max-height: 80%
+            object-fit: contain
+            margin: auto
+            vertical-align: middle
+        td
+            height: 2rem
+            width: 2rem
+            align-content: center
+        img
+            height: 8vh
+            margin-top: 0.8vh
+            margin-left: 10%
+
+        .w
+            background-color: $whiteColor
+
+        .p1
+            background-color: blue
+            opacity: 0.5
+
+        .p2
+            background-color: red
+            opacity: 0.5
+
+        .w.selected
+            box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75)
+
+    #gameOver, #tips
+        background-color: #fffffffa
+        padding: 5vh
+        box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75)
+        h1
+            margin: 0
+
+    ::-webkit-input-placeholder
+        text-align: center
+
+    #control
+        display: flex
+        height: auto
+        justify-content: space-evenly
+        article
+            color: white
+            min-width: 40%
+            padding: 1rem
+            margin: 1rem
+            border-radius: 0.25rem
+            background-color: #ffffff28

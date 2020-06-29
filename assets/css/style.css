@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+}
+
+body {
+  font-family: "Varela Round", sans-serif;
+  background: linear-gradient(225deg, #e97fa3 0%, #8b10b0 49%, #00d4ff 100%);
+  color: black;
+  height: 100vh;
+  overflow: auto;
+  margin: 0;
+}
+body div {
+  text-align: center;
+}
+body header {
+  text-align: center;
+  padding: 2rem;
+  color: white;
+}
+body .acrylic {
+  background-color: #ffffff28;
+}
+body .center {
+  margin: 2rem auto;
+  margin-top: 2rem;
+}
+body #board {
+  background: linear-gradient(45deg, #e97fa3 0%, #8b10b0 49%, #00d4ff 100%);
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.75);
+}
+body #board img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+  margin: auto;
+  vertical-align: middle;
+}
+body #board td {
+  height: 2rem;
+  width: 2rem;
+  align-content: center;
+}
+body #board img {
+  height: 8vh;
+  margin-top: 0.8vh;
+  margin-left: 10%;
+}
+body #board .w {
+  background-color: #ffffff;
+}
+body #board .p1 {
+  background-color: blue;
+  opacity: 0.5;
+}
+body #board .p2 {
+  background-color: red;
+  opacity: 0.5;
+}
+body #board .w.selected {
+  box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+}
+body #gameOver, body #tips {
+  background-color: #fffffffa;
+  padding: 5vh;
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.75);
+}
+body #gameOver h1, body #tips h1 {
+  margin: 0;
+}
+body ::-webkit-input-placeholder {
+  text-align: center;
+}
+body #control {
+  display: flex;
+  height: auto;
+  justify-content: space-evenly;
+}
+body #control article {
+  color: white;
+  min-width: 40%;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.25rem;
+  background-color: #ffffff28;
+}
+
+/*# sourceMappingURL=style.css.map */
