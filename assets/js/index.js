@@ -1,7 +1,7 @@
 window.board = new Board
 
 window.rand = (max, min = 0) => {
-    return Math.floor(Math.random() * max) + min
+    return Math.floor(Math.random() * (max - min)) + min
 }
 
 window.imgCase = (name, x, y) => {
@@ -21,6 +21,20 @@ const createPlayers = () => {
     board.playerStore.push(new Player('blue'))
 }
 
+const createVoid = () => {
+    for (let index = 0; index < params.void; index++) {
+        new Void
+    }
+}
+
+const createGuns = () => {
+    for (let index = 0; index < params.maxGuns; index++) {
+        board.gunStore.push(new Gun(rand(5, 2)))
+    }
+}
+
 board.draw()
 
 createPlayers();
+createVoid();
+createGuns();

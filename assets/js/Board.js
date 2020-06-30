@@ -1,6 +1,7 @@
 class Board {
     constructor() {
         this.playerStore = []
+        this.gunStore = []
         this.specialCases = []
     }
     draw() {

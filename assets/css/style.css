@@ -25,16 +25,22 @@ body .center {
   margin: 2rem auto;
   margin-top: 2rem;
 }
-body #board {
-  background: linear-gradient(45deg, #e97fa3 0%, #8b10b0 49%, #00d4ff 100%);
-  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.75);
-}
-body #board img {
+body img {
   max-width: 80%;
   max-height: 80%;
   object-fit: contain;
   margin: auto;
   vertical-align: middle;
+}
+body button {
+  background-color: #ffffff42;
+  border: none;
+  padding: 0.25rem 1rem;
+  border-radius: 0.25rem;
+}
+body #board {
+  background: linear-gradient(45deg, #e97fa3 0%, #8b10b0 49%, #00d4ff 100%);
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.75);
 }
 body #board td {
   height: 2rem;
@@ -76,11 +82,18 @@ body #control {
   height: auto;
   justify-content: space-evenly;
 }
+body #control * {
+  margin: 0.5rem;
+}
+body #control img {
+  max-height: 5rem;
+  display: block;
+  margin: 0.5rem auto;
+}
 body #control article {
   color: white;
   min-width: 40%;
   padding: 1rem;
-  margin: 1rem;
   border-radius: 0.25rem;
   background-color: #ffffff28;
 }
