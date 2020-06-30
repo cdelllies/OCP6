@@ -5,7 +5,7 @@ class Case {
     checkPos(scope = 0) {
         let coordinates = []
         coordinates.push({ "x": this.x, "y": this.y })
-        for (scope; scope > 0; scope--) {
+        for (let iterations = scope; iterations > 0; iterations--) {
             coordinates.push({
                 "x": this.x + scope,
                 "y": this.y
@@ -26,20 +26,19 @@ class Case {
 
         for (let isSpecial = 0; isSpecial < coordinates.length; isSpecial++) {
             const el = coordinates[isSpecial];
-            if (board.getSpecialCase(el.x, el.y) === null) {
-                console.log("ok")
-            } else {
-                console.log("changing pos")
-                return this.setPosition(this.checkPos(scope))
+            if (board.getSpecialCase(el.x, el.y) !== null) {
+                this.setPosition(true, scope)
+                return
             }
         }
     }
-    setPosition(callback = null) {
+    setPosition(check = false, scope = 0) {
         this.x = rand(10)
-        console.log(this.x)
         this.y = rand(10)
-        console.log(this.y)
-        return callback
+        console.log(`x: ${this.x} & y: ${this.y}`)
+        if (check) {
+            this.checkPos(scope)
+        }
     }
 }
 
