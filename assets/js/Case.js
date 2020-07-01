@@ -134,18 +134,25 @@ class Player extends Case {
         });
     }
     checkGun() {
-        board.gunStore.forEach(gun => {
+        for (let index = 0; index < board.gunStore.length; index++) {
+            const gun = board.gunStore[index];
             if (this.x === gun.x && this.y === gun.y) {
+                console.log("hello there")
+                console.log(gun)
+                console.log(this.gun)
                 this.gun.x = this.x
                 this.gun.y = this.y
                 this.gun = gun
                 gun.x = -1
                 gun.y = -1
                 this.displayGun()
+                return
             }
-        })
+        }
     }
+
 }
+
 
 class Void extends Case {
     constructor() {
