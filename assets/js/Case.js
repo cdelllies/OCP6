@@ -44,8 +44,8 @@ class Case {
         return coordinates
     }
     setPosition(check = false, scope = 0) {
-        this.x = rand(10)
-        this.y = rand(10)
+        this.x = board.rand(10)
+        this.y = board.rand(10)
         if (check) {
             this.checkPos(scope)
         }

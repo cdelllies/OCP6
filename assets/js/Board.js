@@ -3,6 +3,9 @@ class Board {
         this.playerStore = []
         this.gunStore = []
         this.specialCases = []
+        this.draw()
+        this.storePos()
+        this.turn()
     }
     draw() {
         let id = 0
@@ -24,6 +27,14 @@ class Board {
         }
         table.classList.add('center')
         document.querySelector('#app').appendChild(table)
+        for (let index = 0; index < params.maxVoid; index++) {
+            new Void
+        }
+        for (let index = 0; index < params.maxGuns; index++) {
+            this.gunStore.push(new Gun(this.rand(5, 2)))
+        }
+        this.playerStore.push(new Player('red'))
+        this.playerStore.push(new Player('blue'))
     }
     getSpecialCase(x, y) {
         for (let index = 0; index < this.specialCases.length; index++) {
@@ -84,4 +95,8 @@ class Board {
         }
         this.storePos()
     }
+    rand() {
+        return Math.floor(Math.random() * (max - min)) + min
+    }
+
 }
