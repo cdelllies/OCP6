@@ -24,6 +24,16 @@ class Board {
         }
         table.classList.add('center')
         document.querySelector('#app').appendChild(table)
+        for (let index = 0; index < params.void; index++) {
+            new Void
+        }
+        for (let index = 0; index < params.maxGuns; index++) {
+            board.gunStore.push(new Gun(rand(5, 2)))
+        }
+        this.playerStore.push(new Player())
+        this.playerStore.push(new Player())
+        this.storePos()
+        this.turn();
     }
     getSpecialCase(x, y) {
         for (let index = 0; index < this.specialCases.length; index++) {
