@@ -33,8 +33,12 @@ const createGuns = () => {
     }
 }
 
+
+
 board.draw()
 
 createPlayers();
 createVoid();
 createGuns();
+board.storePos()
+board.turn();

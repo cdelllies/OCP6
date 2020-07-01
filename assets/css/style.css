@@ -51,6 +51,8 @@ body #board img {
   height: 8vh;
   margin-top: 0.8vh;
   margin-left: 10%;
+  opacity: 100%;
+  transition: opacity 2s ease 2s;
 }
 body #board .w {
   background-color: #ffffff;

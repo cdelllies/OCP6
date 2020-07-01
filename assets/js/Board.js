@@ -16,6 +16,7 @@ class Board {
                 td.setAttribute('data-x', i)
                 td.setAttribute('data-y', j)
                 td.setAttribute('id', id)
+                td.addEventListener("click", this.eventHandler)
                 id++;
                 tr.appendChild(td)
             }
@@ -41,5 +42,46 @@ class Board {
         let old = this.getSpecialCase(x1, y1)
         old.x = x2
         old.y = y2
+    }
+    eventHandler(event) {
+        let el = event.toElement
+        if (el.tagName === "IMG") {
+            el = event.path[1]
+        }
+        if (el.classList.contains("selected")) {
+            let x = parseInt(el.getAttribute("data-x"))
+            let y = parseInt(el.getAttribute("data-y"))
+            if (board.playerStore[0].path.length === 0) {
+                board.playerStore[1].move(x, y)
+            } else {
+                board.playerStore[0].move(x, y)
+            }
+        }
+    }
+    refreshGuns() {
+        this.gunStore.forEach(gun => {
+            let currentCase = document.querySelector(`[data-x="${gun.x}"][data-y="${gun.y}"]`)
+            if (gun.x === -1) {
+                return
+            } else if (currentCase.innerHTML == "") {
+                gun.displayGun()
+            }
+        })
+    }
+    storePos() {
+        this.pos1 = [this.playerStore[0].x, this.playerStore[0].y]
+        //let pos2 = [this.playerStore[1].x, this.playerStore[1].y]
+    }
+    turn() {
+        console.log(this.pos1)
+        console.log([this.playerStore[0].x, this.playerStore[0].y])
+        console.log(this.playerStore[0].x === this.pos1[0] && this.playerStore[0].y === this.pos1[1])
+        if (this.playerStore[0].x === this.pos1[0] && this.playerStore[0].y === this.pos1[1]) {
+            console.log("there")
+            this.playerStore[0].displayPath()
+        } else {
+            this.playerStore[1].displayPath()
+        }
+        this.storePos()
     }
 }
