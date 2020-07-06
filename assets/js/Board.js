@@ -3,6 +3,7 @@ class Board {
         this.playerStore = []
         this.gunStore = []
         this.specialCases = []
+        this.fight = false
     }
     draw() {
         let id = 0
@@ -39,7 +40,7 @@ class Board {
         for (let index = 0; index < this.specialCases.length; index++) {
             let el = this.specialCases[index]
             if (el.x === x && el.y === y) {
-                console.log(el)
+                //                console.log(el)
                 return el
             }
         }
@@ -57,6 +58,11 @@ class Board {
         let el = event.toElement
         if (el.tagName === "IMG") {
             el = event.path[1]
+        } else if (el.tagName === "BUTTON") {
+            let playerId = el.dataset.player
+            console.log(playerId)
+            board.playerStore[playerId - 1].action = el.dataset.action
+            board.fightController(playerId)
         }
         if (el.classList.contains("selected")) {
             let x = parseInt(el.getAttribute("data-x"))
@@ -68,30 +74,85 @@ class Board {
             }
         }
     }
-    refreshGuns() {
+    refresh() {
         this.gunStore.forEach(gun => {
             let currentCase = document.querySelector(`[data-x="${gun.x}"][data-y="${gun.y}"]`)
             if (gun.x === -1) {
                 return
             } else if (currentCase.innerHTML == "") {
-                gun.displayGun()
+                gun.display()
             }
         })
+
     }
     storePos() {
         this.pos1 = [this.playerStore[0].x, this.playerStore[0].y]
         //let pos2 = [this.playerStore[1].x, this.playerStore[1].y]
     }
     turn() {
-        console.log(this.pos1)
-        console.log([this.playerStore[0].x, this.playerStore[0].y])
-        console.log(this.playerStore[0].x === this.pos1[0] && this.playerStore[0].y === this.pos1[1])
+        //        console.log(this.pos1)
+        //        console.log([this.playerStore[0].x, this.playerStore[0].y])
+        //        console.log(this.playerStore[0].x === this.pos1[0] && this.playerStore[0].y === this.pos1[1])
         if (this.playerStore[0].x === this.pos1[0] && this.playerStore[0].y === this.pos1[1]) {
-            console.log("there")
+            //            console.log("there")
             this.playerStore[0].displayPath()
         } else {
             this.playerStore[1].displayPath()
         }
         this.storePos()
+    }
+    changeHealth(id) {
+        let text = document.querySelector(`#health${id}label`)
+        let bar = document.querySelector(`#health${id}`)
+        text.innerHTML = `Vie : ${board.playerStore[id - 1].health} / 100`
+        bar.value = board.playerStore[id - 1].health
+    }
+    fightController(id) {
+        console.log(id)
+        console.log(this.playerStore[0].action === null)
+        console.log(this.playerStore[1].action === null)
+        if (this.playerStore[0].action === null || this.playerStore[1].action === null) {
+            if (id == 1) {
+                console.log(id)
+                this.playerStore[1].selectFight(false)
+                this.playerStore[0].selectFight(true)
+            } else {
+                console.log(id)
+                this.playerStore[0].selectFight(false)
+                this.playerStore[1].selectFight(true)
+            }
+        } else {
+            console.log("Je suis là")
+            let player1 = this.playerStore[0]
+            let player2 = this.playerStore[1]
+
+            player1.selectFight(true)
+            player2.selectFight(true)
+
+            let power1 = player1.gun.damages
+            let power2 = player2.gun.damages
+
+            if (player1.action === "attack") {
+                if (player2.action === "attack") {
+                    player2.health -= power1
+                    player1.health -= power2
+                } else {
+                    player2.health -= power2 / 2
+                }
+            } else {
+                if (player2.action === "attack") {
+                    player1.health -= power2 / 2
+                }
+            }
+            this.changeHealth(1)
+            this.changeHealth(2)
+            if (player1.health <= 0 || player2.health <= 0) {
+                alert(`Partie finie ${player1.health < player2.health ? 'Le joueur 2' : 'Le joueur 1'} a perdu`)
+            } else {
+                player1.action = null
+                player2.action = null
+                this.turn()
+            }
+        }
     }
 }
