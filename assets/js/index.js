@@ -12,6 +12,6 @@ buttons.forEach(btn => {
 board.draw()
 
 function play() {
-    document.querySelector('#body').classList.remove('blur')
-    document.querySelector('#startPopup').style.visibility = 'hidden'
+    $('#body').removeClass('blur')
+    $('#startPopup').css("visibility", "hidden")
 }
