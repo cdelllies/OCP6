@@ -6,7 +6,7 @@ window.rand = (max, min = 0) => {
 
 let buttons = document.querySelectorAll("article button")
 buttons.forEach(btn => {
-    addEventListener("click", board.eventHandler)
+    btn.addEventListener("click", board.eventHandler)
 })
 
 board.draw()
