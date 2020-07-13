@@ -40,7 +40,6 @@ class Case {
             })
         }
         coordinates[4] = coordinates[0].concat(coordinates[1]).concat(coordinates[2]).concat(coordinates[3])
-        //        console.log(coordinates)
         return coordinates
     }
     setPosition(check = false, scope = 0) {

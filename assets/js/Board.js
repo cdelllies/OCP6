@@ -40,7 +40,6 @@ class Board {
         for (let index = 0; index < this.specialCases.length; index++) {
             let el = this.specialCases[index]
             if (el.x === x && el.y === y) {
-                //                console.log(el)
                 return el
             }
         }
@@ -60,7 +59,6 @@ class Board {
             el = event.path[1]
         } else if (el.tagName === "BUTTON") {
             let playerId = el.dataset.player
-            console.log(playerId)
             board.playerStore[playerId - 1].action = el.dataset.action
             board.fightController(playerId)
         }
@@ -90,11 +88,7 @@ class Board {
         //let pos2 = [this.playerStore[1].x, this.playerStore[1].y]
     }
     turn() {
-        //        console.log(this.pos1)
-        //        console.log([this.playerStore[0].x, this.playerStore[0].y])
-        //        console.log(this.playerStore[0].x === this.pos1[0] && this.playerStore[0].y === this.pos1[1])
         if (this.playerStore[0].x === this.pos1[0] && this.playerStore[0].y === this.pos1[1]) {
-            //            console.log("there")
             this.playerStore[0].displayPath()
         } else {
             this.playerStore[1].displayPath()
@@ -108,21 +102,15 @@ class Board {
         bar.value = board.playerStore[id - 1].health
     }
     fightController(id) {
-        console.log(id)
-        console.log(this.playerStore[0].action === null)
-        console.log(this.playerStore[1].action === null)
         if (this.playerStore[0].action === null || this.playerStore[1].action === null) {
             if (id == 1) {
-                console.log(id)
                 this.playerStore[1].selectFight(false)
                 this.playerStore[0].selectFight(true)
             } else {
-                console.log(id)
                 this.playerStore[0].selectFight(false)
                 this.playerStore[1].selectFight(true)
             }
         } else {
-            console.log("Je suis là")
             let player1 = this.playerStore[0]
             let player2 = this.playerStore[1]
 

@@ -22,20 +22,16 @@ class Player extends Case {
     }
     getPath() {
         let coordinates = super.neighbors(3)
-        //        console.log(coordinates)
         coordinates.splice(4, 1)
         for (let i = 0; i < coordinates.length; i++) {
             const el = coordinates[i];
-            //            console.log(el.length)
             for (let j = 0; j < el.length; j++) {
                 const el2 = el[j];
                 let currentCase = board.getSpecialCase(el2.x, el2.y)
-                if (currentCase != null && !currentCase.isWalkable || el2.x > 9 || el2.y > 9 || el2.x < 0 || el2.y < 0) {
-                    //                    console.log('cant walk here')
+                if (currentCase != null && !currentCase.isWalkable || el2.x > params.gridSize - 1 || el2.y > params.gridSize - 1 || el2.x < 0 || el2.y < 0) {
                     el.splice(j)
                 }
                 if (currentCase != null && j == 0 && currentCase.type === Player) {
-                    console.log("Baston")
                     board.fight = true
                 }
             }
@@ -65,7 +61,6 @@ class Player extends Case {
         board.turn()
     }
     sanitize() {
-        //        console.log(this.path)
         this.path.forEach(el => {
             let currentCase = document.querySelector(`[data-x="${el.x}"][data-y="${el.y}"]`)
             currentCase.innerHTML = ""
