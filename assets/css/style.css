@@ -10,6 +10,40 @@ body {
   overflow: auto;
   margin: 0;
 }
+body li {
+  text-align: left;
+}
+body .blur {
+  filter: blur(10px);
+}
+body .popup {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: calc(100vh - 8rem);
+  width: calc(100vw - 8rem);
+  margin: 2rem;
+  padding: 2rem;
+  background: #ffffffa6;
+  -webkit-backdrop-filter: blur(10px);
+}
+body .popup h1 {
+  margin-bottom: 1rem;
+}
+body .popup ul {
+  margin-bottom: 1rem;
+}
+body .popup img {
+  height: 2rem;
+}
+body .popup button {
+  background: #8080806b;
+  font-size: 1.5rem;
+}
+body #endPopup {
+  visibility: hidden;
+}
 body div {
   text-align: center;
 }
@@ -57,27 +91,8 @@ body #board img {
 body #board .w {
   background-color: #ffffff;
 }
-body #board .p1 {
-  background-color: blue;
-  opacity: 0.5;
-}
-body #board .p2 {
-  background-color: red;
-  opacity: 0.5;
-}
 body #board .w.selected {
   box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
-}
-body #gameOver, body #tips {
-  background-color: #fffffffa;
-  padding: 5vh;
-  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.75);
-}
-body #gameOver h1, body #tips h1 {
-  margin: 0;
-}
-body ::-webkit-input-placeholder {
-  text-align: center;
 }
 body #control {
   display: flex;

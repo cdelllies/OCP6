@@ -147,7 +147,9 @@ class Board {
             this.changeHealth(1)
             this.changeHealth(2)
             if (player1.health <= 0 || player2.health <= 0) {
-                alert(`Partie finie ${player1.health < player2.health ? 'Le joueur 2' : 'Le joueur 1'} a perdu`)
+                alert(`Partie finie ${(player1.health < player2.health) ? 'Le joueur 1' : 'Le joueur 2'} a perdu`)
+                document.querySelector('#body').classList.add('blur')
+                document.querySelector('#endPopup').style.visibility = 'visible'
             } else {
                 player1.action = null
                 player2.action = null

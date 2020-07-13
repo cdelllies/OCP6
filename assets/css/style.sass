@@ -11,6 +11,32 @@ body
     height: 100vh
     overflow: auto
     margin: 0
+    li
+        text-align: left
+    .blur
+        filter: blur(10px)
+    .popup
+        z-index: 2
+        position: absolute
+        top: 0
+        left: 0
+        height: calc(100vh - 8rem)
+        width: calc(100vw - 8rem)
+        margin: 2rem
+        padding: 2rem
+        background: #ffffffa6
+        -webkit-backdrop-filter: blur(10px)
+        h1
+            margin-bottom: 1rem
+        ul
+            margin-bottom: 1rem
+        img
+            height: 2rem
+        button
+            background: #8080806b
+            font-size: 1.5rem
+    #endPopup
+        visibility: hidden
     div
         text-align: center
     header
@@ -35,7 +61,6 @@ body
         border-radius: 0.25rem
     #board
         background: linear-gradient(45deg, rgba(233,127,163,1) 0%, rgba(139,16,176,1) 49%, rgba(0,212,255,1) 100%)
-        //border-spacing: 0px
         box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75)
         td
             height: 2rem
@@ -51,26 +76,8 @@ body
         .w
             background-color: $whiteColor
 
-        .p1
-            background-color: blue
-            opacity: 0.5
-
-        .p2
-            background-color: red
-            opacity: 0.5
-
         .w.selected
             box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75)
-
-    #gameOver, #tips
-        background-color: #fffffffa
-        padding: 5vh
-        box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75)
-        h1
-            margin: 0
-
-    ::-webkit-input-placeholder
-        text-align: center
 
     #control
         display: flex

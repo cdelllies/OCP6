@@ -11,43 +11,71 @@
 </head>
 
 <body>
-  <header class="acrylic">
-    <h1>Overwatch 3</h1>
-    <sub>Jeu de plateau écrit en JavaScript</sub>
-  </header>
-  <div id="app"></div>
-  <div id="control" class="acrylic">
-    <article id="control1">
-      <h2>Joueur 1</h2>
-      <div>
-        <label for="health1" id="health1label">Vie : 100/100</label><br>
-        <progress id="health1" value="100" max="100"></progress>
-        <h4>Arme :<span id="gun1name"></span></h4>
-        <img src="" id="gun1">
-      </div>
-      <button data-player="1" data-action="defend" disabled>Se défendre</button>
-      <button data-player="1" data-action="attack" disabled>Attaquer</button>
-    </article>
-    <article id="control2">
-      <h2>Joueur 2</h2>
-      <div>
-        <label for="health2" id="health2label">Vie : 100/100</label><br>
-        <progress id="health2" value="100" max="100"></progress>
-        <h4>Arme :<span id="gun2name"></span></h4>
-        <img src="" id="gun2">
-
-      </div>
-      <button data-player="2" data-action="defend" disabled>Se défendre</button>
-      <button data-player="2" data-action="attack" disabled>Attaquer</button>
-    </article>
+  <div class="popup" id="startPopup">
+    <h1>Règles du jeu :</h1>
+    <ul>
+      <li>Vous jouez tour par tour pour attraper des armes</li>
+      <li>Quand vous êtes prêts vous pouvez attaquer votre adversaire</li>
+      <li>Une fois côte à côte, le combat est déclenché, vous pourrez vous défendre ou attaquer tour par tour<br>Jusqu'a
+        la mort de l'un d'entre vous</li>
+    </ul>
+    <h2>Les armes : </h2>
+    <ul>
+      <li>Ampli | Dégats : 10<br><img src="assets/img/1.png" alt=""><br></li>
+      <li>Pacificateur | Dégats : 30<br><img src="assets/img/2.png" alt=""><br></li>
+      <li>Pulseur | Dégats : 20<br><img src="assets/img/3.png" alt=""></li>
+      <li>Pistolet Mitrailleur | Dégats : 25<br><img src="assets/img/4.png" alt=""></li>
+    </ul>
+    <button onclick="play()">Jouer</button>
   </div>
+  <div class="popup" id="endPopup">
+    <h1>Partie finie !</h1>
+
+    <button onclick="location.reload()">Recommencer</button>
+  </div>
+  <div id="body" class="blur">
+    <header class="acrylic">
+      <h1>Overwatch 3</h1>
+      <sub>Jeu de plateau écrit en JavaScript</sub>
+    </header>
+    <div id="app"></div>
+    <div id="control" class="acrylic">
+      <article id="control1">
+        <h2>Joueur 1</h2>
+        <div>
+          <label for="health1" id="health1label">Vie : 100/100</label><br>
+          <progress id="health1" value="100" max="100"></progress>
+          <h4>Arme :<span id="gun1name"></span></h4>
+          <img src="" id="gun1">
+        </div>
+        <button data-player="1" data-action="defend" disabled>Se défendre</button>
+        <button data-player="1" data-action="attack" disabled>Attaquer</button>
+      </article>
+      <article id="control2">
+        <h2>Joueur 2</h2>
+        <div>
+          <label for="health2" id="health2label">Vie : 100/100</label><br>
+          <progress id="health2" value="100" max="100"></progress>
+          <h4>Arme :<span id="gun2name"></span></h4>
+          <img src="" id="gun2">
+
+        </div>
+        <button data-player="2" data-action="defend" disabled>Se défendre</button>
+        <button data-player="2" data-action="attack" disabled>Attaquer</button>
+      </article>
+    </div>
+  </div>
+
   <footer>
 
   </footer>
   <div id="rules" style="display: hidden;"></div>
   <script src="assets/js/config.js"></script>
-  <script src="assets/js/Board.js"></script>
   <script src="assets/js/Case.js"></script>
+  <script src="assets/js/Gun.js"></script>
+  <script src="assets/js/Void.js"></script>
+  <script src="assets/js/Player.js"></script>
+  <script src="assets/js/Board.js"></script>
   <script src="assets/js/index.js"></script>
 </body>
 
